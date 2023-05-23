@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blueviolet;
+}
+
+.header1 {
+  padding: 15px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 25px;
+}
+
+.title1 {
+  color: bisque;
+  margin-left: 160px;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 700;
+  color: bisque;
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: 95px;
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.recent {
+  color: bisque;
+  padding: 6px 0;
+  font-size: 35px;
+}
+
+.refresh,
+.submit {
+  background-color: transparent;
+  color: bisque;
+  border: 2px solid black;
+  padding: 3px 13px;
+  font-weight: 600;
+  transition: all 100ms;
+}
+
+.refresh:hover {
+  background-color: skyblue;
+}
+
+.score {
+  color: bisque;
+}
+
+.table_container {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+.table_container tr:nth-child(even) {
+  background-color: grey;
+}
+
+.table_container tr:nth-child(odd) {
+  background-color: white;
+}
+
+.point {
+  font-weight: 800;
+}
+
+.Formx {
+  margin-top: 38px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 25px;
+  gap: 20px;
+}
+
+input {
+  padding: 5px 10px;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
+input::placeholder {
+  color: black;
+  font-weight: 600;
+}
+
+.submit {
+  align-self: flex-end;
+}
+
+.submit:hover {
+  background-color: skyblue;
+}
