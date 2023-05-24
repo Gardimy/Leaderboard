@@ -100,7 +100,7 @@ or
 
 ### Install:
 
-run the `npm install` command in your console.
+run the `npm install ` command in your console.
 
 ### Usage
 
@@ -126,9 +126,10 @@ To run the linters before committing any changes to your code, execute the follo
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Use webpack to bundle JavaScript.
-- Use proper ES6 syntax.
-- Use ES6 modules to write modular JavaScript.
+- Send and receive data from an API.
+- Use API documentation.
+- Understand and use JSON.
+- Make JavaScript code asynchronous.
 
 <!-- CONTRIBUTING -->
 
