@@ -1,110 +1,93 @@
 import './style.css';
+import { getScores, addScore } from './api.js';
+import { renderLeaderboard } from './leaderboard.js';
 
-const API_BASE_URL = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
-
-// DOM Elements
-const refreshButton = document.querySelector('.refresh');
-const form = document.querySelector('.form');
-const nameInput = document.querySelector('#Inputname');
-const scoreInput = document.querySelector('#Inputscore');
-const tableContainer = document.querySelector('.table_container');
-
-let gameId = null;
-
-// Function to create a new game
-const createGame = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/games/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: 'Your Game Name',
-      }),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      gameId = data.id;
-      console.log('Game created. ID:', gameId);
-    } else {
-      console.log('Failed to create game');
-    }
-  } catch (error) {
-    console.log('Error:', error);
-  }
+const handleRefresh = async () => {
+  const scores = await getScores();
+  renderLeaderboard(scores);
 };
 
-// Function to fetch and display scores
-const fetchScores = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/games/${gameId}/scores/`);
-
-    if (response.ok) {
-      const data = await response.json();
-      displayScores(data);
-    } else {
-      console.log('Failed to fetch scores');
-    }
-  } catch (error) {
-    console.log('Error:', error);
-  }
-};
-
-// Function to display scores in the table
-const displayScores = (scores) => {
-  tableContainer.innerHTML = ''; // Clear previous scores
-
-  scores.forEach((score) => {
-    const row = document.createElement('tr');
-    const cell = document.createElement('td');
-    cell.textContent = `${score.name}: ${score.score}`;
-    row.appendChild(cell);
-    tableContainer.appendChild(row);
-  });
-};
-
-// Function to submit a score
-const submitScore = async (event) => {
+const handleSubmit = async (event) => {
   event.preventDefault();
+  const playerName = document.getElementById('Inputname').value;
+  const playerScore = document.getElementById('Inputscore').value;
 
-  const name = nameInput.value;
-  const score = parseInt(scoreInput.value);
-
-  if (!name || !score) {
-    console.log('Please enter a name and score');
-    return;
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/games/${gameId}/scores/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        score,
-      }),
-    });
-
-    if (response.ok) {
-      console.log('Score submitted');
-      nameInput.value = '';
-      scoreInput.value = '';
-      fetchScores(); // Refresh scores after submitting
-    } else {
-      console.log('Failed to submit score');
-    }
-  } catch (error) {
-    console.log('Error:', error);
+  const scoreAdded = await addScore(playerName, playerScore);
+  if (scoreAdded) {
+    handleRefresh();
+    document.getElementById('Inputname').value = '';
+    document.getElementById('Inputscore').value = '';
   }
 };
 
-// Event Listeners
-refreshButton.addEventListener('click', fetchScores);
-form.addEventListener('submit', submitScore);
+document.querySelector('.refresh').addEventListener('click', handleRefresh);
+document.querySelector('.form').addEventListener('submit', handleSubmit);
 
-// Create a new game on page load
-createGame();
+handleRefresh();
+
+
+
+
+
+
+
+// import './style.css';
+
+// let data = [];
+
+// const player = document.getElementById('Inputname');
+// const points = document.getElementById('Inputscore');
+// const pointsDeploy = document.querySelector('.table_container');
+
+// const getScores = async () => {
+//   try {
+//     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores');
+//     const json = await response.json();
+//     data = json.result;
+//     pointsDeploy.innerHTML = '';
+//     data.forEach((dat, index) => {
+//       const row = document.createElement('tr');
+//       const cell = document.createElement('td');
+//       cell.className = `point`;
+//       cell.textContent = `${dat.user}: ${dat.score}`;
+//       row.appendChild(cell);
+//       pointsDeploy.appendChild(row);
+//     });
+//   } catch (error) {
+//     console.log('Error:', error);
+//   }
+// };
+
+// const addScore = async (playerAdd, pointsAdd) => {
+//   try {
+//     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores', {
+//       method: 'POST',
+//       body: JSON.stringify({
+//         user: playerAdd,
+//         score: Number(pointsAdd),
+//       }),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//     });
+//     const json = await response.json();
+//     if (json.response === 'Leaderboard score created correctly.') {
+//       getScores();
+//     }
+//     player.value = '';
+//     points.value = '';
+//   } catch (error) {
+//     console.log('Error:', error);
+//   }
+// };
+
+// document.querySelector('.refresh').addEventListener('click', () => {
+//   getScores();
+// });
+
+// document.querySelector('.form').addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   addScore(player.value, points.value);
+// });
+
+// getScores();
