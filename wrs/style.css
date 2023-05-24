@@ -4,14 +4,14 @@
   box-sizing: border-box;
 }
 
-/*body {
+body {
   background-color: white;
 }
 
 .header1 {
   padding: 15px;
 }
-*/
+
 .header {
   width: 100%;
   display: flex;
