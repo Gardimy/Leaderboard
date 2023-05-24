@@ -1,9 +1,9 @@
-# Follow JS best practice
+# Leaderboard : Setup
 <a name="readme-top"></a>
 
 <div align="center">
 
-  <h3><b>Follow JS best practice</b></h3>
+  <h3><b>Leaderboard : Setup</b></h3>
 
 </div>
 
@@ -29,8 +29,8 @@
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
-# 📖Follow JS best practice<a name="about-project"></a>
-In this project, I add some functionality to my application to make it interactive. The user will also be able to mark task completion by selecting the corresponding checkbox (or undo it by unchecking the checkbox). The updated tasks list will be stored in local storage.
+# 📖Leaderboard : Setup<a name="about-project"></a>
+For this milestone, I create a setup of the structure and layout for a leaderboard webpage, displaying recent scores and allowing users to add their own scores.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -70,11 +70,7 @@ In this project, I add some functionality to my application to make it interacti
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Gardimy/Webpack_setup/issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-[Live Demo](https://gardimy.github.io/Webpack_setup/dist/)
+Feel free to check the [issues page](https://github.com/Gardimy/Leaderboard_project/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,11 +92,11 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-`https://github.com/Gardimy/Webpack_setup`
+`https://github.com/Gardimy/Leaderboard_project`
 
 or
 
-`https://github.com/Gardimy/Webpack_setup` <-- _Only if you have [SSH keys configured](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on your GitHub account_.
+`https://github.com/Gardimy/Leaderboard_project` <-- _Only if you have [SSH keys configured](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on your GitHub account_.
 
 ### Install:
 
