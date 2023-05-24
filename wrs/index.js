@@ -11,6 +11,10 @@ const getScores = async () => {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores');
     const json = await response.json();
     leaderboard = json.result;
+
+    // Sort the leaderboard based on scores in descending order
+    leaderboard.sort((a, b) => b.score - a.score);
+
     pointsDeploy.innerHTML = '';
     leaderboard.forEach((dat) => {
       const row = document.createElement('tr');
@@ -26,6 +30,11 @@ const getScores = async () => {
 };
 
 const addScore = async (userName, userScore) => {
+  if (!userName || !userScore) {
+    // Display an error message or perform appropriate action for empty inputs
+    return;
+  }
+
   try {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores', {
       method: 'POST',
