@@ -1,9 +1,9 @@
-# Leaderboard : Setup
+# Leaderboard : hit the API
 <a name="readme-top"></a>
 
 <div align="center">
 
-  <h3><b>Leaderboard : Setup</b></h3>
+  <h3><b>Leaderboard : API</b></h3>
 
 </div>
 
@@ -29,7 +29,7 @@
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
-# 📖Leaderboard : Setup<a name="about-project"></a>
+# 📖Leaderboard : hit the API<a name="about-project"></a>
 For this milestone, I create a setup of the structure and layout for a leaderboard webpage, displaying recent scores and allowing users to add their own scores.
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -58,9 +58,9 @@ For this milestone, I create a setup of the structure and layout for a leaderboa
 
 > Use webpack to bundle JavaScript.
 
-- [ ] **[Use webpack to bundle JavaScript.]**
-- [ ] **[Use ES6 modules to write modular JavaScript.]**
-- [ ] **[use proper ES6 syntax.]**
+- [ ] **[Use API documentation.]**
+- [ ] **[Make JavaScript code asynchronous.]**
+- [ ] **[Use medium-fidelity wireframes to create a UI.]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
