@@ -1,50 +1,50 @@
 import './style.css';
 
-let data = [];
+let leaderboard = [];
 
-const player = document.getElementById('Inputname');
-const points = document.getElementById('Inputscore');
+const user = document.getElementById('Inputname');
+const score = document.getElementById('Inputscore');
 const pointsDeploy = document.querySelector('.table_container');
 
 const getScores = async () => {
   try {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores');
     const json = await response.json();
-    data = json.result;
+    leaderboard = json.result;
     pointsDeploy.innerHTML = '';
-    data.forEach((dat, index) => {
+    leaderboard.forEach((dat) => {
       const row = document.createElement('tr');
-      const cell = document.createElement('td');
-      cell.className = `point`;
-      cell.textContent = `${dat.user}: ${dat.score}`;
-      row.appendChild(cell);
+      const name = document.createElement('td');
+      name.className = 'point';
+      name.textContent = `${dat.user}: ${dat.score}`;
+      row.appendChild(name);
       pointsDeploy.appendChild(row);
     });
   } catch (error) {
-    console.log('Error:', error);
+    // Handle the error
   }
 };
 
-const addScore = async (playerAdd, pointsAdd) => {
+const addScore = async (userName, userScore) => {
   try {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores', {
       method: 'POST',
       body: JSON.stringify({
-        user: playerAdd,
-        score: Number(pointsAdd),
+        user: userName,
+        score: Number(userScore),
       }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
     const json = await response.json();
-    if (json.response === 'Leaderboard score created correctly.') {
+    if (json.response === 'Leaderboard score created.') {
       getScores();
     }
-    player.value = '';
-    points.value = '';
+    user.value = '';
+    score.value = '';
   } catch (error) {
-    console.log('Error:', error);
+    // Handle the error
   }
 };
 
@@ -54,7 +54,7 @@ document.querySelector('.refresh').addEventListener('click', () => {
 
 document.querySelector('.form').addEventListener('submit', (event) => {
   event.preventDefault();
-  addScore(player.value, points.value);
+  addScore(user.value, score.value);
 });
 
 getScores();
