@@ -4,25 +4,26 @@ let leaderboard = [];
 
 const user = document.getElementById('Inputname');
 const score = document.getElementById('Inputscore');
-const pointsDeploy = document.querySelector('.table_container');
+const table = document.querySelector('.table_container');
 
 const getScores = async () => {
   try {
-    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores');
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/GARdimyGDm/scores');
     const json = await response.json();
     leaderboard = json.result;
 
     // Sort the leaderboard based on scores in descending order
     leaderboard.sort((a, b) => b.score - a.score);
 
-    pointsDeploy.innerHTML = '';
+    table.innerHTML = '';
     leaderboard.forEach((dat) => {
+      console.log(table);
       const row = document.createElement('tr');
       const name = document.createElement('td');
       name.className = 'point';
       name.textContent = `${dat.user}: ${dat.score}`;
       row.appendChild(name);
-      pointsDeploy.appendChild(row);
+      table.appendChild(row);
     });
   } catch (error) {
     // Handle the error
@@ -36,7 +37,7 @@ const addScore = async (userName, userScore) => {
   }
 
   try {
-    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores', {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/GARdimyGDm/scores', {
       method: 'POST',
       body: JSON.stringify({
         user: userName,
