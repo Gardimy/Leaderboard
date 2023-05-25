@@ -8,7 +8,7 @@ const pointsDeploy = document.querySelector('.table_container');
 
 const getScores = async () => {
   try {
-    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores');
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/GARdimyGDm/scores');
     const json = await response.json();
     leaderboard = json.result;
 
@@ -36,7 +36,7 @@ const addScore = async (userName, userScore) => {
   }
 
   try {
-    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/TYBkzPuwqpwT7G0vx1Do/scores', {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/GARdimyGDm/scores', {
       method: 'POST',
       body: JSON.stringify({
         user: userName,
