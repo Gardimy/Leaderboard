@@ -17,9 +17,17 @@ const getScores = async () => {
 
     table.innerHTML = '';
     leaderboard.forEach((dat) => {
+      console.log(table);
       const row = document.createElement('tr');
+<<<<<<< HEAD
       row.className = 'point';
       row.textContent = `${dat.user}: ${dat.score}`;
+=======
+      const name = document.createElement('td');
+      name.className = 'point';
+      name.textContent = `${dat.user}: ${dat.score}`;
+      row.appendChild(name);
+>>>>>>> 66ef061d333880bd01cc26e705b69d7bdec8d950
       table.appendChild(row);
     });
   } catch (error) {
