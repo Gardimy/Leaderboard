@@ -4,7 +4,7 @@ let leaderboard = [];
 
 const user = document.getElementById('Inputname');
 const score = document.getElementById('Inputscore');
-const pointsDeploy = document.querySelector('.table_container');
+const table = document.querySelector('.table_container');
 
 const getScores = async () => {
   try {
@@ -15,14 +15,12 @@ const getScores = async () => {
     // Sort the leaderboard based on scores in descending order
     leaderboard.sort((a, b) => b.score - a.score);
 
-    pointsDeploy.innerHTML = '';
+    table.innerHTML = '';
     leaderboard.forEach((dat) => {
       const row = document.createElement('tr');
-      const name = document.createElement('td');
-      name.className = 'point';
-      name.textContent = `${dat.user}: ${dat.score}`;
-      row.appendChild(name);
-      pointsDeploy.appendChild(row);
+      row.className = 'point';
+      row.textContent = `${dat.user}: ${dat.score}`;
+      table.appendChild(row);
     });
   } catch (error) {
     // Handle the error
