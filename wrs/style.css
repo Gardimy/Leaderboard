@@ -5,11 +5,12 @@
 }
 
 body {
-  background-color: white;
+  background-color: whitesmoke;
 }
 
 .header1 {
   padding: 15px;
+  background-color: royalblue;
 }
 
 .header {
@@ -20,6 +21,7 @@ body {
   justify-content: space-between;
   gap: 40px;
   padding: 15px;
+  background-color: royalblue;
 }
 
 .title1 {
@@ -32,7 +34,7 @@ body {
   font-size: 50px;
   font-weight: 700;
   margin-left: 250px;
-  margin-top: 30px;
+  color: whitesmoke;
 }
 
 .container {
@@ -42,6 +44,7 @@ body {
   justify-content: center;
   width: 100%;
   gap: 95px;
+  margin-top: 34px;
 }
 
 .work {
@@ -53,12 +56,14 @@ body {
 .recent {
   padding: 6px 0;
   font-size: 35px;
+  color: whitesmoke;
 }
 
 .refresh,
 .submit {
-  background-color: transparent;
-  border: 2px solid black;
+  background-color: royalblue;
+  color: whitesmoke;
+  border: 1px solid floralwhite;
   padding: 3px 13px;
   font-weight: 600;
   transition: all 100ms;
@@ -70,8 +75,9 @@ body {
 
 .table_container {
   width: 100%;
-  border: 2px solid black;
+  border: 1px solid royalblue;
   border-radius: 2px;
+  background-color: whitesmoke;
 }
 
 .table_container tr:nth-child(even) {
@@ -80,6 +86,12 @@ body {
 
 .table_container tr:nth-child(odd) {
   background-color: white;
+}
+
+.score {
+  background-color: royalblue;
+  background-size: 100px;
+  color: whitesmoke;
 }
 
 .point {

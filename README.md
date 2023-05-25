@@ -1,9 +1,9 @@
-# Leaderboard : hit the API
+# Leaderboard : final touches
 <a name="readme-top"></a>
 
 <div align="center">
 
-  <h3><b>Leaderboard : API</b></h3>
+  <h3><b>Leaderboard : final touches</b></h3>
 
 </div>
 
@@ -29,7 +29,7 @@
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
-# 📖Leaderboard : hit the API<a name="about-project"></a>
+# 📖Leaderboard : final touches<a name="about-project"></a>
 For this milestone, I create a setup of the structure and layout for a leaderboard webpage, displaying recent scores and allowing users to add their own scores.
 ## 🛠 Built With <a name="built-with"></a>
 
